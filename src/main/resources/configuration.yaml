@@ -1,0 +1,9 @@
+!!org.example.app.properties.PropertiesData
+appiumProperties:
+  platformName: android
+  deviceName: device
+  udid: emulator-5554
+  app: /home/nadir/Downloads/app_02.apk
+  automationName: UIAutomator2
+  newCommandTimeout: 120
+  autoGrantPermissions: true
