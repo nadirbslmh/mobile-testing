@@ -36,7 +36,7 @@ public class LoginPageSteps extends BaseTest {
         String titleText = calculatorPage.getTitle();
         Assertions.assertEquals("Calculator", titleText);
         //isDisplayed
-        boolean isDisplayed = calculatorPage.checkHamburgerBtnAppear();
+        boolean isDisplayed = calculatorPage.historyBtnAppear();
         Assertions.assertTrue(isDisplayed);
         //Hamcrest
         MatcherAssert.assertThat(isDisplayed, Matchers.equalTo(true));

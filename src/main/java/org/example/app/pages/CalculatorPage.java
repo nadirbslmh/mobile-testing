@@ -14,7 +14,7 @@ import java.time.Duration;
 public class CalculatorPage extends BasePageObject {
 
     public String getTitle() {
-        return getText(AppiumBy.xpath("//android.view.ViewGroup[@resource-id='com.isl.simpleapp:id/toolbar']//android.widget.TextView"));
+        return getText(AppiumBy.xpath("//android.view.View[@content-desc=\"Calculator\"]"));
     }
 
     public boolean checkHamburgerBtnAppear() {
@@ -26,5 +26,32 @@ public class CalculatorPage extends BasePageObject {
 
         return hamburgerBtn.isDisplayed();
     }
+
+    public boolean historyBtnAppear() {
+        return isDisplayed(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button"));
+    }
+
+    public void tapFirstOperand() {
+        click(AppiumBy.xpath("//android.view.View[@content-desc=\"1\"]"));
+    }
+
+    public void tapPlusOperator() {
+        click(AppiumBy.xpath("//android.view.View[@content-desc=\" + \"]"));
+    }
+
+    public void tapSecondOperand() {
+        click(AppiumBy.xpath("//android.view.View[@content-desc=\"2\"]"));
+    }
+
+    public void tapEqual() {
+        click(AppiumBy.xpath("//android.view.View[@content-desc=\"=\"]"));
+    }
+
+    public void getResult(int result) {
+        String res = Integer.toString(result);
+
+        getText(AppiumBy.xpath("(//android.view.View[@content-desc=\"7\"])[1]"));
+    }
+
 
 }

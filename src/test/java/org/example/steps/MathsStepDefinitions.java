@@ -2,12 +2,17 @@ package org.example.steps;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import io.cucumber.java.en.And;
+import org.example.BaseTest;
 import org.example.app.Calculator;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Assertions;
 
-public class MathsStepDefinitions {
+public class MathsStepDefinitions extends BaseTest {
 
     int a = 0;
     int b = 0;
@@ -15,12 +20,24 @@ public class MathsStepDefinitions {
 
     Calculator calculator = new Calculator();
 
-    @Given("a is {int}")
+    @Given("user in the calculator page")
+    public void givenUserInCalculatorPage() {
+        //getText
+        String titleText = calculatorPage.getTitle();
+        Assertions.assertEquals("Calculator", titleText);
+        //isDisplayed
+        boolean isDisplayed = calculatorPage.historyBtnAppear();
+        Assertions.assertTrue(isDisplayed);
+        //Hamcrest
+        MatcherAssert.assertThat(isDisplayed, Matchers.equalTo(true));
+    }
+
+    @And("a is {int}")
     public void givenAIs(int value) {
         a = value;
     }
 
-    @Given("b is {int}")
+    @And("b is {int}")
     public void givenBIs(int value) {
         b = value;
     }
