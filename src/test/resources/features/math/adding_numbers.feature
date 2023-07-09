@@ -1,6 +1,5 @@
 Feature: Adding Numbers
 
-  @sample
   Scenario: Adding two numbers
     Given user in the calculator page
     And a is 1

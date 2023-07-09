@@ -8,6 +8,9 @@ import org.openqa.selenium.WebElement;
 public class BasePageObject {
 
     public AndroidDriver getDriver(){
+        if (AndroidDriverInit.driver == null) {
+            AndroidDriverInit.initialize();
+        }
         return AndroidDriverInit.driver;
     }
 

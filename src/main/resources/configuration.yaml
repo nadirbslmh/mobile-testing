@@ -1,4 +1,5 @@
 !!org.example.app.properties.PropertiesData
+
 appiumProperties:
   platformName: android
   deviceName: device

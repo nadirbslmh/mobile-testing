@@ -17,16 +17,15 @@ public class AndroidDriverInit {
         DesiredCapabilities caps = new DesiredCapabilities();
         PropertiesReader reader = new PropertiesReader();
         HashMap<String,String> data = reader.readProperties().getAppiumProperties();
-        //lambda - java 8
+
         data.forEach(caps::setCapability);
 
-        //inisialisasi Appium
-        String url = "http://localhost:4723/";
+        String url = "http://127.0.0.1:4723/";
         try {
             driver = new AndroidDriver(new URL(url), caps);
             //implicit wait
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        } catch (MalformedURLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

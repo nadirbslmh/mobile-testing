@@ -41,13 +41,14 @@ public class MathsStepDefinitions extends BaseTest {
     @And("b is {int}")
     public void givenBIs(int value) {
         b = value;
+        calculatorPage.tapPlusOperator();
         calculatorPage.tapSecondOperand();
     }
 
     @When("I add a and b")
     public void iAddAAndB() {
         total = calculator.add(a,b);
-        calculatorPage.tapPlusOperator();
+        calculatorPage.tapEqual();
     }
 
     @Then("the total should be {int}")
