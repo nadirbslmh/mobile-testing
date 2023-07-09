@@ -47,10 +47,13 @@ public class CalculatorPage extends BasePageObject {
         click(AppiumBy.xpath("//android.view.View[@content-desc=\"=\"]"));
     }
 
-    public void getResult(int result) {
+    public int getResult(int result) {
         String res = Integer.toString(result);
+        String resXpath = "(//android.view.View[@content-desc=\"7\"])[1]";
 
-        getText(AppiumBy.xpath("(//android.view.View[@content-desc=\"7\"])[1]"));
+        String xpath = resXpath.replace("7", res);
+
+        return Integer.parseInt(getText(AppiumBy.xpath(xpath)));
     }
 
 

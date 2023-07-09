@@ -4,5 +4,4 @@ appiumProperties:
   deviceName: device
   app: /home/nadir/Downloads/calculator-alta-qe.apk
   automationName: UIAutomator2
-  newCommandTimeout: 120
   autoGrantPermissions: true

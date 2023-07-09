@@ -35,21 +35,25 @@ public class MathsStepDefinitions extends BaseTest {
     @And("a is {int}")
     public void givenAIs(int value) {
         a = value;
+        calculatorPage.tapFirstOperand();
     }
 
     @And("b is {int}")
     public void givenBIs(int value) {
         b = value;
+        calculatorPage.tapSecondOperand();
     }
 
     @When("I add a and b")
     public void iAddAAndB() {
         total = calculator.add(a,b);
+        calculatorPage.tapPlusOperator();
     }
 
     @Then("the total should be {int}")
     public void theTotalShouldBe(int expectedTotal) {
         assertThat(total).isEqualTo(expectedTotal);
+        assertThat(total).isEqualTo(calculatorPage.getResult(expectedTotal));
     }
 
 }
