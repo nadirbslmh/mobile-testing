@@ -2,11 +2,22 @@ package org.example.app.pages;
 
 import io.appium.java_client.AppiumBy;
 import org.example.app.base.BasePageObject;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CalculatorPage extends BasePageObject {
 
     public String getTitle() {
-        return getText(AppiumBy.xpath("//android.view.View[@content-desc=\"Calculator\"]"));
+        By locator = AppiumBy.xpath("//android.view.View[@content-desc=\"Calculator\"]");
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+
+        return element.getAttribute("content-desc");
     }
 
     public boolean historyBtnAppear() {
@@ -35,8 +46,10 @@ public class CalculatorPage extends BasePageObject {
 
         String xpath = resXpath.replace("7", res);
 
-        return Integer.parseInt(getText(AppiumBy.xpath(xpath)));
+        WebElement resultElement = find(AppiumBy.xpath(xpath));
+
+        String calculationResult = resultElement.getAttribute("content-desc");
+
+        return Integer.parseInt(calculationResult);
     }
-
-
 }
