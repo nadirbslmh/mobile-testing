@@ -14,7 +14,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <serenity.version>3.6.12</serenity.version>
         <serenity.cucumber.version>3.6.12</serenity.cucumber.version>
-        <webdriver.driver></webdriver.driver>
     </properties>
 
     <repositories>
@@ -107,7 +106,7 @@
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>8.3.0</version>
+            <version>8.5.1</version>
         </dependency>
         <dependency>
             <groupId>org.yaml</groupId>
@@ -131,7 +130,6 @@
                     </includes>
                     <argLine>-Xmx512m</argLine>
                     <systemPropertyVariables>
-                        <!--<webdriver.driver>${webdriver.driver}</webdriver.driver>-->
                         <cucumber.options>--junit,--step-notifications</cucumber.options>
                     </systemPropertyVariables>
                 </configuration>
