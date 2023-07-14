@@ -1,3 +1,4 @@
+@android
 Feature: Adding Numbers
 
   Scenario: Adding two numbers
